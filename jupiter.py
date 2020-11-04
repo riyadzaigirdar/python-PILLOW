@@ -1,5 +1,10 @@
 # link -> https://stackoverflow.com/questions/10607468/how-to-reduce-the-image-file-size-using-pil
 
+serializer = serializers.CompanySerializer(obj, context={'request': request})
+    print(serializer.data["company_compressed_logo"])
+request.build_absolute_uri(obj.company_compressed_logo)
+
+
 flask run --host 199.192.27.157 --port 5000
 
 # string array to array

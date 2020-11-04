@@ -1,5 +1,7 @@
 # link -> https://stackoverflow.com/questions/10607468/how-to-reduce-the-image-file-size-using-pil
 
+flask run --host 199.192.27.157 --port 5000
+
 # string array to array
 
 from ast import literal_eval

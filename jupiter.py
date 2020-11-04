@@ -1,5 +1,12 @@
 # link -> https://stackoverflow.com/questions/10607468/how-to-reduce-the-image-file-size-using-pil
 
+# string array to array
+
+from ast import literal_eval
+s = "['a',['b','c','d'],'e']"
+print(literal_eval(s))
+['a', ['b', 'c', 'd'], 'e']
+
 # office way
 
 from PIL import Image

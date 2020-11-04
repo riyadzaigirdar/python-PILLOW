@@ -1,5 +1,23 @@
 # link -> https://stackoverflow.com/questions/10607468/how-to-reduce-the-image-file-size-using-pil
 
+# office way
+
+from PIL import Image
+
+company_obj = models.Company.objects.get(id=id)
+
+url = str(company_obj.company_compressed_logo.url).split("media-employers")[::-1][0]
+base = str(setter.BASE_DIR) # settings base dir # settings imported as setter
+
+path = base+"/media"+url
+
+picture = Image.open(path)
+new_pic = picture.resize((120,120),Image.ANTIALIAS) 
+print("last", path)
+new_pic.save(path, quality=100,optimize=True)
+
+
+# other way
 from PIL import Image
 
 
@@ -19,11 +37,11 @@ new_pic.save("compressed.jpg", quality=100)
 print(new_pic.size)
 
 
-# Other way
+# another way
 
-# compressed_picture = picture.save("compressed_picture.jpg", optimize=True, quality=10)
+compressed_picture = picture.save("compressed_picture.jpg", optimize=True, quality=10)
 
-# print(picture.size)
+print(picture.size)
 
 
 # another way
@@ -32,7 +50,7 @@ print(new_pic.size)
 # 'cover_pic', in that case, you can do the following to compress 
 # the image:
 
-# from PIL import Image
-# b = Book.objects.get(title='Into the wild')
-# image = Image.open(b.cover_pic.path)
-# image.save(b.image.path,quality=20,optimize=True)
+from PIL import Image
+b = Book.objects.get(title='Into the wild')
+image = Image.open(b.cover_pic.path)
+image.save(b.image.path,quality=20,optimize=True)
